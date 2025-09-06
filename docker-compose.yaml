@@ -1,0 +1,22 @@
+version: '3'
+services:
+  api:
+    image: node:24-alpine3.21
+    working_dir: /app
+    volumes:
+      - ./:/app
+    depends_on:
+      - db
+    ports:
+      - 3000:3000
+    command:
+      sh -c "npm i -g nodemon && nodemon --legacy-watch index.js"
+  db:
+    image: mysql
+    ports:
+     - "3306:3306"
+    environment:
+     - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+     - MYSQL_DATABASE=${DB_NAME}
+    volumes:
+     - ./db:/var/lib/mysql
