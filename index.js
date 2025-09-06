@@ -6,10 +6,7 @@ const app = express();
 const port = 3000;
 
 // ✅ Config CORS
-app.use(cors({
-  origin: "http://localhost:5173", // หรือใส่ URL ของ frontend
-  credentials: true               // เพื่อให้ส่ง cookie/token ได้
-}));
+app.use(cors());
 
 app.use(express.json()); 
 app.use(cookieParser());
