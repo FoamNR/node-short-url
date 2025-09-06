@@ -7,11 +7,10 @@ const port = 3000;
 
 // ✅ Config CORS ให้รับทุก origin + credentials
 app.use(cors({
-  origin: (origin, callback) => {
-    callback(null, origin || true); // อนุญาตทุก origin
-  },
+  origin: "http://135.202.71.133:80",
   credentials: true
 }));
+
 
 app.use(express.json());
 app.use(cookieParser());
