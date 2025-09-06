@@ -28,7 +28,7 @@ router.post("/shorten",
       const { originalUrl } = req.body;
       
       // ใช้ environment variable สำหรับ base URL
-      const baseUrl = process.env.BASE_URL || "http://localhost:3000";
+      const baseUrl = process.env.BASE_URL || "http://35.202.71.133:3000";
       const shortId = nanoid(6);
       const shortUrl = `${baseUrl}/${shortId}`;
       
@@ -56,7 +56,7 @@ router.post("/shorten",
 // ✅ Redirect
 router.get("/:id", async (req, res) => {
   try {
-    const baseUrl = process.env.BASE_URL || "http://localhost:3000";
+    const baseUrl = process.env.BASE_URL || "http://35.202.71.133:3000";
     const shortUrl = `${baseUrl}/${req.params.id}`;
     
     const [rows] = await pool.query(
