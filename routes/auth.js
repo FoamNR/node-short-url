@@ -7,7 +7,7 @@ const pool = require("../config/dbconnect");
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || "mysecret";
 
-// ✅ สมัครสมาชิก
+//  สมัครสมาชิก
 router.post("/register", async (req, res) => {
   try {
     const { username, password, role } = req.body;
@@ -27,7 +27,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// ✅ ล็อกอิน
+//  ล็อกอิน
 router.post("/login", async (req, res) => {
   try {
     const { username, password } = req.body;
@@ -53,7 +53,7 @@ router.post("/login", async (req, res) => {
     // ตั้งค่า cookie
     res.cookie('token', token, {
       httpOnly: true,
-      secure: true,
+      secure: false,
       sameSite: 'None',
       maxAge: 60 * 60 * 1000 // 1 ชั่วโมง
     });
@@ -68,7 +68,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// ✅ ออกจากระบบ
+//  ออกจากระบบ
 router.post("/logout", (req, res) => {
   res.clearCookie("token").json({ message: "Logged out" });
 });

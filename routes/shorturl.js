@@ -7,7 +7,7 @@ const { body, validationResult } = require("express-validator");
 
 const router = express.Router();
 
-// ✅ สร้าง short URL
+// สร้าง short URL
 router.post("/shorten", 
   authenticateToken,
   [
@@ -53,7 +53,7 @@ router.post("/shorten",
   }
 );
 
-// ✅ Redirect
+//  Redirect
 router.get("/:id", async (req, res) => {
   try {
     const baseUrl = process.env.BASE_URL || "http://35.202.71.133:3000";
@@ -80,8 +80,8 @@ router.get("/:id", async (req, res) => {
     res.status(500).send("Server error");
   }
 });
-// ✅ ดึงประวัติการเข้าถึงของ short URL ของผู้ใช้
-// ✅ ดึงประวัติการเข้าถึง short URL
+// ดึงประวัติการเข้าถึงของ short URL ของผู้ใช้
+//  ดึงประวัติการเข้าถึง short URL
 router.get("/history/:shorturl_id", 
   authenticateToken,
   async (req, res) => {
@@ -126,7 +126,7 @@ router.get("/history/:shorturl_id",
   }
 );
 
-// ✅ ดึงประวัติทั้งหมดของ user (สำหรับ dashboard)
+//  ดึงประวัติทั้งหมดของ user (สำหรับ dashboard)
 router.get("/user/history", 
   authenticateToken,
   async (req, res) => {
