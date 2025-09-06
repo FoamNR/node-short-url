@@ -1,14 +1,19 @@
 const express = require('express');
 const cookieParser = require("cookie-parser");
-const cors = require("cors");   // ✅ เพิ่ม
+const cors = require("cors");
 
 const app = express();
 const port = 3000;
 
-// ✅ Config CORS
-app.use(cors());
+// ✅ Config CORS ให้รับทุก origin + credentials
+app.use(cors({
+  origin: (origin, callback) => {
+    callback(null, origin || true); // อนุญาตทุก origin
+  },
+  credentials: true
+}));
 
-app.use(express.json()); 
+app.use(express.json());
 app.use(cookieParser());
 
 const authRoutes = require('./routes/auth');
