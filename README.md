@@ -31,7 +31,7 @@ npm install
 ### 4. รันแอปพลิเคชัน
 
 ```bash
-npm start
+nodemon index.js
 ```
 
 แอปพลิเคชันจะเริ่มทำงานที่ [http://localhost:3000](http://localhost:3000).
@@ -76,3 +76,4 @@ npm test
 ## ลิขสิทธิ์
 
 MIT License. ดูไฟล์ [LICENSE](LICENSE) สำหรับรายละเอียดเพิ่มเติม.
+
